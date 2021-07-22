@@ -12,7 +12,7 @@ tags: [programming, study, scala]
 
 ---
 
-# 5. 문제
+# 5. 내적
 
 ## 문제 설명
 
