@@ -12,62 +12,51 @@ tags: [programming, study, scala]
 
 ---
 
-# 4. 문제
+# 4. 음양 더하기
 
 ## 문제 설명
 
+정수 리스트에 부호 리스트를 적용해서 합을 구해라.
+
  ## Inputs
 
-| Variable Name | type | meaning |
-| ------------- | ---- | ------- |
-|               |      |         |
-|               |      |         |
-|               |      |         |
+| Variable Name | type            | meaning                    |
+| ------------- | --------------- | -------------------------- |
+| absolutes     | Vector[Int]     | numbers that are absoluted |
+| signs         | Vector[Boolean] | sign for number            |
 
 ## output
 
 ~~~scala
-
+return Int // Sum of numbers
 ~~~
-
-
 
 ## Conditions
 
-* 
+* absolutes
+  * length: 1~1000
+* signs
+  * same length of absolutes
 
 ## Test cases
 
-| n    | lost | reserve | return |
-| ---- | ---- | ------- | ------ |
-|      |      |         |        |
-|      |      |         |        |
-|      |      |         |        |
+| absolutes  | signs                | result |
+| ---------- | -------------------- | ------ |
+| `[4,7,12]` | `[true,false,true]`  | 9      |
+| `[1,2,3]`  | `[false,false,true]` | 0      |
 
 ## Solution
 
-
-
-### 1차 solution
-
-### 2차 solution
-
-### 추가 수정! Idea from Others
+그냥 absolutes랑 signs  zip한뒤에 reduce하면 될듯.
 
 ~~~scala
-var updated_lost = lost.filterNot(idx => reserve.exists(v => v == idx))
-var updated_reserve = reserve.filterNot(idx => lost.exists(v => v == idx))
+def solution(absolutes: Vector[Int], signs: Vector[Boolean]): Int = {
+        return absolutes.zip(signs).map(row => if (row._2) row._1 else -row._1).sum
+    }
 ~~~
 
-이 두개를 필터링 하지 않고 set의 diff로 구하는 방법도 있다.
-
-~~~scala
-var updated_lost = lost.diff(reserve)
-var updated_reserve = reserve.diff(lost)
-~~~
-
-
+생각대로 됨. zip하고 map해서 숫자에 음양 붙이고 해당 벡터 전체의 sum 구하면 끝.
 
 ## Study from Implementation
 
-* 
+* Iterable의 합은 .sum을 붙이면 된다.
