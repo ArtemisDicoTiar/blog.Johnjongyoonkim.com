@@ -12,7 +12,7 @@ tags: [programming, study, scala]
 
 ---
 
-# 3. K번째 수
+# 6. K번째 수
 
 ## 문제 설명
 
